@@ -1,11 +1,16 @@
 defmodule FoodTrucks do
-  @moduledoc """
-  FoodTrucks keeps the contexts that define your domain
-  and business logic.
+  # import data file
+  @truck_data "./assets/truck_data.csv"
 
-  Contexts are also responsible for managing your data, regardless
-  if it comes from the database, an external API or others.
-  """
+  def get_truck_data() do
+    File.stream!(@truck_data)
+    |> Stream.map(&String.split(&1, ","))
+    |> Stream.filter(fn
+        ["locationid" | _] -> false
+        _ -> true
+    end)
+  end
+
   def get_trucks() do
     "tacos, burritos, ice cream"
   end
