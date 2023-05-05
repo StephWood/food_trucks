@@ -1,2 +1,11 @@
-<h1>Hello, Trucks!</h1>
-<p> <%= @trucks %> </p>
+<div class="bg-blue-light text-blue-dark w-full h-full absolute ">
+  <header class="flex items-center text-6xl bg-blue-dark text-white justify-center py-4">
+    <h1>Food Truck Finder</h1>
+  </header>
+  <label class="flex justify-center items-center text-4xl text-blue-dark my-3">What do you want to eat?</label>
+
+<div class="flex justify-center space-x-2">
+    <.input class="mr-4" value={@food} name="food" placeholder="Enter your craving" />
+    <.button class="mt-2 bg-blue-dark" phx-click="get_trucks">Submit</.button>
+</div>
+</div>

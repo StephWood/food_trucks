@@ -3,6 +3,32 @@
 @import 'tailwindcss/utilities';
 
 /* This file is for your main application CSS */
-h1 {
-  color: blue;
-}
+/* .App {
+  text-align: center;
+  color: #021439;
+  background-color: #add8e6;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+} */
+/* 
+.App-header {
+  background-color: #021439;
+  min-height: 6vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+} */
+/* 
+label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  margin: 8px;
+  color: #021439;
+} */
