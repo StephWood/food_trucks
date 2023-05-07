@@ -4,8 +4,16 @@
   </header>
   <label class="flex justify-center items-center text-4xl text-blue-dark my-3">What do you want to eat?</label>
 
-<div class="flex justify-center space-x-2">
-    <.input class="mr-4" value={@food} name="food" placeholder="Enter your craving" />
-    <.button class="mt-2 bg-blue-dark" phx-click="get_trucks">Submit</.button>
-</div>
+<.simple_form for={@form} phx-submit="get_trucks" class="flex items-center justify-center">
+  <.input field={@form[:food]} placeholder="Enter your craving!"/>
+  <:actions>
+    <.button>Submit</.button>
+  </:actions>
+</.simple_form>
+
+
+<%= for truck <- @desired_trucks do %>
+  <div><%= truck %></div>
+<% end %>
+
 </div>

@@ -6,13 +6,16 @@ defmodule Trucks do
    def get_truck_data() do
      File.read!(@truck_data)
      |> String.split("\n")
-     |> Enum.map(&String.split(&1, ","))
-     |> Enum.map(fn l -> fix_names(l) end)
-     |> Enum.filter(fn
-         ["locationid" | _] -> false
-         [_, _, _, _, _, _, _, _, _, _, "APPROVED" | _] -> true
-         _ -> false
+     |> Enum.map(fn
+        row -> String.split(row, ",")
+        |> fix_names()
+        |> Enum.drop(-12)
      end)
+     |> Enum.filter(fn
+        ["locationid" | _] -> false
+        [_, _, _, _, _, _, _, _, _, _, "APPROVED" | _] -> true
+        _ -> false
+      end)
    end
 
    def fix_names(list) do
