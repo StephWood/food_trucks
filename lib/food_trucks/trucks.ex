@@ -7,12 +7,21 @@ defmodule Trucks do
      File.read!(@truck_data)
      |> String.split("\n")
      |> Enum.map(&String.split(&1, ","))
+     |> Enum.map(fn l -> fix_names(l) end)
      |> Enum.filter(fn
          ["locationid" | _] -> false
          [_, _, _, _, _, _, _, _, _, _, "APPROVED" | _] -> true
-         [_, _, _, _, _, _, _, _, _, _, _, "APPROVED" | _] -> true
          _ -> false
      end)
+   end
+
+   def fix_names(list) do
+    if length(list) == 31 do
+      name = Enum.at(list, 1) <>","<>Enum.at(list, 2)
+      list |> List.delete_at(2) |> List.replace_at(1, name)
+    else
+      list
+    end
    end
 
    def get_trucks(trucks, input) do
@@ -21,6 +30,3 @@ defmodule Trucks do
      |> Enum.take(2)
    end
  end
-
- # |> Enum.each(fn list -> List.delete_at(list, 0) end)
-# end
