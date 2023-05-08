@@ -184,9 +184,9 @@ defmodule FoodTrucksWeb.CoreComponents do
   def simple_form(assigns) do
     ~H"""
     <.form :let={f} for={@for} as={@as} {@rest}>
-      <div class="mt-4 space-y-6 bg-blue-light">
+      <div class="mt-4 space-x-2 bg-blue-light flex place-content-center">
         <%= render_slot(@inner_block, f) %>
-        <div :for={action <- @actions} class="mt-2 flex items-center justify-center gap-6">
+        <div :for={action <- @actions} class="flex items-center justify-center gap-6">
           <%= render_slot(action, f) %>
         </div>
       </div>
