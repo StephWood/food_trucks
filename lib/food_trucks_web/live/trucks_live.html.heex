@@ -12,8 +12,8 @@
 </.simple_form>
 
 <div class="grid grid-cols-4 gap-4 mt-4 mx-4 bg-blue-light">
-  <%= for truck <- @desired_trucks do %>
-    <div class="flex flex-col items-center text-center py-2 px-2 border border-blue-dark rounded-md space-y-2">
+  <%= for truck <- @filtered_trucks do %>
+    <div class="truck-item flex flex-col items-center text-center py-2 px-2 border border-blue-dark rounded-md space-y-2">
     <p class="text-xl font-bold"><%= truck.applicant %></p>
     <p><%= truck.address %></p>
     <p>Available Food: <%= truck.food %></p>

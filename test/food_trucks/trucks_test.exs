@@ -12,7 +12,7 @@ defmodule TrucksTest do
   end
 
   test "should return a reduced list of trucks based on food filter input", context do
-    desired_trucks = Trucks.get_trucks(context.trucks, "tea")
-    assert length(desired_trucks) < length(context.trucks)
+    filtered_trucks = Trucks.get_filtered_trucks(context.trucks, "tea")
+    assert length(filtered_trucks) < length(context.trucks)
   end
 end

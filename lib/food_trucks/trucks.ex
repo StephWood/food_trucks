@@ -33,7 +33,7 @@ defmodule Trucks do
     end
    end
 
-   def get_trucks(trucks, input) do
+   def get_filtered_trucks(trucks, input) do
      trucks
      |> Enum.filter(fn [_, _, _, _, _, _, _, _, _, _, _, f | _] -> String.contains?(String.downcase(f), String.downcase(input)) end)
      |> Enum.map(fn t ->

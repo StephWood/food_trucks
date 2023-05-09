@@ -6,8 +6,8 @@ defmodule FoodTrucks do
     Trucks.get_truck_data()
   end
 
-  def get_trucks(trucks, input) do
-    Trucks.get_trucks(trucks, input)
+  def get_filtered_trucks(trucks, input) do
+    Trucks.get_filtered_trucks(trucks, input)
   end
 
   def new_filter() do
