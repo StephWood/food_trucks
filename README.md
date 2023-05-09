@@ -50,19 +50,25 @@ styling, it is very possible there is a superior method to work with this
 framework. With more time I would like to conditionally render a "no {food-item}
 available" component if there are no relevant results, but I was unfamiliar with
 that implementation to access data from the Tailwind form inside the heex code.
-In React, I would do something like this in a TruckResults component: `const
-filteredTrucks = allTrucks.filter( truck => truck.FoodItems !== undefined &&
-truck.FoodItems.toLowerCase().includes(foodValue) && truck.Status === 'APPROVED'
+In React, I would do something like this in a TruckResults component: 
+```
+const filteredTrucks = allTrucks.filter( truck => 
+truck.FoodItems !== undefined &&
+truck.FoodItems.toLowerCase().includes(foodValue) && 
+truck.Status === 'APPROVED'
 );
 
 const desired_trucks = filteredTrucks.map(truck => (
 <Truck key={truck.applicantid} truck={truck} /> ));
 
-return ( <> {desired_trucks.length > 0 ? ( <div>
-
-<h3>{`${foodValue}s available at: `}</h3>
-<div className='truck-results'>{desired_trucks}</div> </div> ) : (
-<div>{`Sorry, no ${foodValue} available.`}</div> )} </> );`
+return ( <> {desired_trucks.length > 0 ? 
+( <div>
+    <h3>{`${foodValue}s available at: `}</h3>
+    <div className='truck-results'>{desired_trucks}</div> 
+  </div> ) : (
+  <div>{`Sorry, no ${foodValue} available.`}</div> )} 
+  </> );
+```
 
 I implemented unit tests to validate the getting and filtering of data,
 rendering of elements on the frontend, and end-to-end test that input from the
